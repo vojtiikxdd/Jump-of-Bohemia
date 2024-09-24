@@ -253,8 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb152c8bf35e0d4ebb57bdfe63fa1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  groundCheck: {fileID: 0}
+  rb: {fileID: 504641068}
+  groundCheck: {fileID: 16233132}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
