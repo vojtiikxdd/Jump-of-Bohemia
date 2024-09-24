@@ -7,12 +7,19 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float speed = 6.0f;
-    private float jumpingPower = 22f;
+    private float jumpingPower = 4f;
+    public float maxJumpTime = 0.5f;
+    public float jumpForceMultiplier = 5f; 
+    private bool isJumping = false;
+    private float jumpTimer = 0f;
     private bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    public float groundCheckRadius = 0.2f;
+
+    public bool isGroundedFlag;
 
     void Start()
     {
@@ -22,20 +29,50 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGroundedFlag)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            isJumping = true;
+            jumpTimer = 0f;
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) 
+        if (Input.GetKey(KeyCode.Space) && isJumping)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            jumpTimer += Time.deltaTime;
+            jumpTimer = Mathf.Clamp(jumpTimer, 0f, maxJumpTime);
+        }
+        
+        if (Input.GetKeyUp(KeyCode.Space) && isJumping)
+        {
+            Jump();
+            isJumping = false;
         }
 
         Flip();
+
+        // if (Input.GetButtonDown("Jump") && isGrounded())
+        // {
+            
+        //     // rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        // }
+
+        // if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) 
+        // {
+        //     rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+        //     //rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        // }
+
+        
+    }
+    private void Jump()
+    {
+        float totalJumpForce = jumpingPower + jumpForceMultiplier * (jumpTimer / maxJumpTime);
+        rb.AddForce(Vector3.up * totalJumpForce, ForceMode2D.Impulse);
     }
 
-    private bool isGrounded()
+    private bool CheckIfGrounded()
     {
         // if (Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer))
         // {
