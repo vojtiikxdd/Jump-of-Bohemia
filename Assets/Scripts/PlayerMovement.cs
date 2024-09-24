@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
