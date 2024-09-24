@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float speed = 6.0f;
-    private float jumpingPower = 16f;
+    private float jumpingPower = 22f;
     private bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
-            // transform.Rotate(0f, 180f, 0f);
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 }
