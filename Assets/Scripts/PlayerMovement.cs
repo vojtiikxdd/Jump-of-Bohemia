@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 velocity = rb.velocity;
+        //Vector2 velocity = rb.velocity;
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
         // if (horizontal > 0f && !isFacingRight)
