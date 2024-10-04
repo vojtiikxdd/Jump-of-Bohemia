@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float speed = 6.0f;
-    private float jumpingPower = 4f;
+    private float jumpingPower = 12f;
     public float maxJumpTime = 0.5f;
     public float jumpForceMultiplier = 5f; 
     private bool isJumping = false;
