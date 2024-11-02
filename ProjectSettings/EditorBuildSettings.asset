@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: bc1fefebd8f6f6c409ea0469afcc33ec
+  - enabled: 1
     path: Assets/Scenes/Forest 1 - fieldtrip.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
