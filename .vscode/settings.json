@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Jump of Bohemia.sln"
+    "dotnet.defaultSolution": "test.sln"
 }
