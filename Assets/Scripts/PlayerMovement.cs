@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    public float groundCheckRadius = 0.2f;
+    public float groundCheckRadius = 0.1f;
 
     public bool isGroundedFlag;
 
@@ -49,22 +49,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        Flip();
-
-        // if (Input.GetButtonDown("Jump") && isGrounded())
-        // {
-            
-        //     // rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        // }
-
-        // if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) 
-        // {
-        //     rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-
-        //     //rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        // }
-
-        
+        Flip(); 
     }
     private void Jump()
     {
@@ -74,34 +59,16 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckIfGrounded()
     {
-        // if (Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer))
-        // {
-        //     rb.velocity = new Vector2(rb.velocity.x, 0);
-        // }   
-
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void FixedUpdate()
     {
-        //Vector2 velocity = rb.velocity;
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
-        // if (horizontal > 0f && !isFacingRight)
-        // {
-        //     Flip();
-        // }
-        // else if (horizontal < 0f && isFacingRight)
-        // {
-        //     Flip();
-        // }
     }
 
     private void Flip()
     {
-        // isFacingRight = !isFacingRight;
-        // transform.Rotate(0f, 180f, 0f);
-
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
