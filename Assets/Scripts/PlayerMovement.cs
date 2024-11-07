@@ -18,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     public float groundCheckRadius = 0.1f;
 
-    public bool isGroundedFlag;
-
     private PlayerSoundJump playerSoundJump; // Reference to the PlayerSoundJump script
 
     void Start()
@@ -32,28 +30,34 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Check if the player is on the ground
-        isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        // Update grounded status
+        bool isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // Handle jump start
+        // Reset isJumping only when the player is grounded
+        if (isGroundedFlag && !isJumping)
+        {
+            isJumping = false;
+        }
+
+        // Start jump if grounded and space is pressed
         if (Input.GetKeyDown(KeyCode.Space) && isGroundedFlag)
         {
             isJumping = true;
             jumpTimer = 0f;
-            playerSoundJump.PlayJumpSound(); // Play the jump sound only at jump start
         }
 
-        // Handle holding the jump button
+        // Track jump hold time
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
             jumpTimer += Time.deltaTime;
             jumpTimer = Mathf.Clamp(jumpTimer, 0f, maxJumpTime);
         }
 
-        // Execute the jump when space is released
+        // Release jump and play sound
         if (Input.GetKeyUp(KeyCode.Space) && isJumping)
         {
             Jump();
+            playerSoundJump.PlayJumpSound(); // Play the jump sound
             isJumping = false;
         }
 
