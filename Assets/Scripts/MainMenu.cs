@@ -15,18 +15,6 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-    public GameObject settingsPanel; // Panel s nastavením
 
-    // Funkce pro otevření nastavení
-    public void OpenSettings()
-    {
-        settingsPanel.SetActive(true);
-    }
-
-    // Funkce pro zavření nastavení
-    public void CloseSettings()
-    {
-        settingsPanel.SetActive(false);
-    }
 }
     

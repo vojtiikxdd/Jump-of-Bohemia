@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
     {
         settingsPanel.SetActive(true);
     }
-
+ 
     // Funkce pro zavření nastavení
     public void CloseSettings()
     {

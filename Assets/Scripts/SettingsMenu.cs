@@ -7,6 +7,7 @@ public class SettingsMenu : MonoBehaviour
 {
     public Slider volumeSlider; // Odkaz na slider
 
+
     void Start()
     {
         // Načti hlasitost uloženou v nastavení (pokud je k dispozici)
