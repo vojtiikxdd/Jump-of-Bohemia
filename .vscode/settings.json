@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "github.sln"
+    "dotnet.defaultSolution": "Jump of Bohemia.sln"
 }
