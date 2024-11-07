@@ -32,25 +32,28 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
+        // Check if the player is on the ground
         isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGroundedFlag)
+        // Handle jump start
+        if (Input.GetKeyDown(KeyCode.Space) && isGroundedFlag)
         {
             isJumping = true;
             jumpTimer = 0f;
+            playerSoundJump.PlayJumpSound(); // Play the jump sound only at jump start
         }
 
+        // Handle holding the jump button
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
             jumpTimer += Time.deltaTime;
             jumpTimer = Mathf.Clamp(jumpTimer, 0f, maxJumpTime);
         }
 
-        // Call the Jump method and play the sound when spacebar is released
+        // Execute the jump when space is released
         if (Input.GetKeyUp(KeyCode.Space) && isJumping)
         {
             Jump();
-            playerSoundJump.PlayJumpSound(); // Play the jump sound when spacebar is released
             isJumping = false;
         }
 
@@ -61,11 +64,6 @@ public class PlayerMovement : MonoBehaviour
     {
         float totalJumpForce = jumpingPower + jumpForceMultiplier * (jumpTimer / maxJumpTime);
         rb.AddForce(Vector3.up * totalJumpForce, ForceMode2D.Impulse);
-    }
-
-    private bool CheckIfGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void FixedUpdate()
