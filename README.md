@@ -8,3 +8,5 @@
 
 ## Running the game
 - You can run the game by downloading JumpOfBohemia.exe file and running it. Game is not completed and not fully working, but you can move, jump and enter another scenes. Accessing menu by clicking ESC is not available
+
+byloNás5ět
