@@ -10,7 +10,7 @@ public class PlayerSoundJump : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         if (audioSource == null)
+        if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
         }
