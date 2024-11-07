@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 6.0f;
     private float jumpingPower = 14f;
     public float maxJumpTime = 0.5f;
-    public float jumpForceMultiplier = 5f; 
+    public float jumpForceMultiplier = 5f;
     private bool isJumping = false;
     private float jumpTimer = 0f;
     private bool isFacingRight = true;
@@ -21,10 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isGroundedFlag;
 
+    private PlayerSoundJump playerSoundJump; // Reference to the PlayerSoundJump script
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerSoundJump = GetComponent<PlayerSoundJump>(); // Get the PlayerSoundJump script
     }
+
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -42,15 +45,18 @@ public class PlayerMovement : MonoBehaviour
             jumpTimer += Time.deltaTime;
             jumpTimer = Mathf.Clamp(jumpTimer, 0f, maxJumpTime);
         }
-        
+
+        // Call the Jump method and play the sound when spacebar is released
         if (Input.GetKeyUp(KeyCode.Space) && isJumping)
         {
             Jump();
+            playerSoundJump.PlayJumpSound(); // Play the jump sound when spacebar is released
             isJumping = false;
         }
 
         Flip(); 
     }
+
     private void Jump()
     {
         float totalJumpForce = jumpingPower + jumpForceMultiplier * (jumpTimer / maxJumpTime);
