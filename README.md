@@ -16,14 +16,5 @@
 - Vojta Razima - project manager, mein developer
 - Tomáš Slatinsky - grafik
 - Mário Miklovič - sound engineer
-<<<<<<< HEAD
-byloNás5ět
-=======
-## Instructions for Starting the Game
-- Open the Main Menu, then press the Play button to enter the game.
 
-## Team members
-- Vojta Razima - project manager, mein developer
-- Tomáš Slatinsky - grafik
-- Mário Miklovič - sound engineer
->>>>>>> 37c8534191f084f366ded5ea4b6e48b91b1af40a
+byloNás5ět
