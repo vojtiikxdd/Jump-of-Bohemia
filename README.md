@@ -8,3 +8,11 @@
 
 ## Running the game
 - You can run the game by downloading JumpOfBohemia.exe file and running it. Game is not completed and not fully working, but you can move, jump and enter another scenes. Accessing menu by clicking ESC is not available
+
+## Instructions for Starting the Game
+- Open the Main Menu, then press the Play button to enter the game.
+
+## Team members
+- Vojta Razima - project manager, mein developer
+- Tomáš Slatinsky - grafik
+- Mário Miklovič - sound engineer
