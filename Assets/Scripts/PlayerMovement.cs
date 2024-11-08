@@ -18,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     public float groundCheckRadius = 0.1f;
 
-    public bool isGroundedFlag;
-
     private PlayerSoundJump playerSoundJump; // Reference to the PlayerSoundJump script
 
     void Start()
@@ -32,25 +30,34 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        // Update grounded status
+        bool isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGroundedFlag)
+        // Reset isJumping only when the player is grounded
+        if (isGroundedFlag && !isJumping)
+        {
+            isJumping = false;
+        }
+
+        // Start jump if grounded and space is pressed
+        if (Input.GetKeyDown(KeyCode.Space) && isGroundedFlag)
         {
             isJumping = true;
             jumpTimer = 0f;
         }
 
+        // Track jump hold time
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
             jumpTimer += Time.deltaTime;
             jumpTimer = Mathf.Clamp(jumpTimer, 0f, maxJumpTime);
         }
 
-        // Call the Jump method and play the sound when spacebar is released
+        // Release jump and play sound
         if (Input.GetKeyUp(KeyCode.Space) && isJumping)
         {
             Jump();
-            playerSoundJump.PlayJumpSound(); // Play the jump sound when spacebar is released
+            playerSoundJump.PlayJumpSound(); // Play the jump sound
             isJumping = false;
         }
 
@@ -61,11 +68,6 @@ public class PlayerMovement : MonoBehaviour
     {
         float totalJumpForce = jumpingPower + jumpForceMultiplier * (jumpTimer / maxJumpTime);
         rb.AddForce(Vector3.up * totalJumpForce, ForceMode2D.Impulse);
-    }
-
-    private bool CheckIfGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void FixedUpdate()

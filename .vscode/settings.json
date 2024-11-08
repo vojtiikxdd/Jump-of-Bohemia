@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
+    "github.sln=======dotnet.defaultSolution": "test.sln>>>>>>>197ab0848736b448ed23c2bd3f6ec34b49a95f15",
     "dotnet.defaultSolution": "github.sln"
 }
