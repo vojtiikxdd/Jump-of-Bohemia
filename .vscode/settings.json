@@ -56,6 +56,7 @@
         "temp/": true,
         "Temp/": true
     },
-    "github.sln=======dotnet.defaultSolution": "test.sln>>>>>>>197ab0848736b448ed23c2bd3f6ec34b49a95f15",
+    "<<<<<<<HEADgithub.sln=======dotnet.defaultSolution": "test.sln>>>>>>>197ab0848736b448ed23c2bd3f6ec34b49a95f15",
+    "github.sln=======dotnet.defaultSolution": "Jump of Bohemia.sln>>>>>>>74d2ddd13518023beaf257f4342039599259f6bf",
     "dotnet.defaultSolution": "github.sln"
 }
