@@ -24,3 +24,5 @@ byloNás5ět
 - Vojta Razima - project manager, mein developer
 - Tomáš Slatinsky - grafik
 - Mário Miklovič - sound engineer
+
+byloNás5ět
