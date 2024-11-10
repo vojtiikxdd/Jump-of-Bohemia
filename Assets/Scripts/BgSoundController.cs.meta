@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6e4f7dd9b6ea30a458fe2d652fd33e0d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - lowAltitudeClip: {fileID: 8300000, guid: b3de5d00397fcf342a28d674656d31c9, type: 3}
+  - midAltitudeClip: {fileID: 8300000, guid: 0a206d6ebf91a2b49ac882017f4cb501, type: 3}
+  - highAltitudeClip: {fileID: 8300000, guid: ff8b4b34c074b204aab3887554b8c022, type: 3}
+  - playerTransform: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
