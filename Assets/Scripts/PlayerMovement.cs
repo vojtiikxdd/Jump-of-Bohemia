@@ -36,63 +36,71 @@ public class PlayerMovement : MonoBehaviour
         // Update grounded status
         isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (jumpTimer == 0.0f && isGroundedFlag)
-        {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        }
-
-        // Reset canJump only when the player is grounded
+        // Allow jump if grounded
         if (isGroundedFlag && !canJump)
-        {
-            canJump = false;
-        }
-
-        // Start jump if grounded and space is pressed
-        if (Input.GetKeyDown(KeyCode.Space) && isGroundedFlag)
         {
             canJump = true;
             jumpTimer = 0f;
         }
 
-        if (Input.GetKey("space") && isGroundedFlag && canJump){
-            rb.velocity = new Vector2(0.0f, rb.velocity.y);
+        // Handle jump input and timing
+        HandleJumpInput();
+
+        // Flip character based on movement direction
+        Flip();
+    }
+
+    private void FixedUpdate()
+    {
+        // Update movement only in FixedUpdate for consistency with physics
+        MovePlayer();
+    }
+
+    private void HandleJumpInput()
+    {
+        // Start jump on initial space press
+        if (Input.GetKeyDown(KeyCode.Space) && isGroundedFlag && canJump)
+        {
+            jumpTimer = 0f; // Reset jump timer at the start of a new jump
         }
 
-        // Track jump hold time
+        // Track jump hold time while space is held
         if (Input.GetKey(KeyCode.Space) && canJump)
         {
             jumpTimer += Time.deltaTime;
             jumpTimer = Mathf.Clamp(jumpTimer, 0f, maxJumpTime);
         }
 
-        // Release jump and play sound
+        // Release jump and apply force
         if (Input.GetKeyUp(KeyCode.Space) && canJump)
         {
             Jump();
-            playerSoundJump.PlayJumpSound(); // Play the jump sound
+            playerSoundJump?.PlayJumpSound(); // Play the jump sound if script is attached
             canJump = false;
         }
+    }
 
-        Flip(); 
+    private void MovePlayer()
+    {
+        // Set horizontal movement, preserving vertical velocity
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
     private void Jump()
     {
+        // Calculate total jump force based on how long the player held the jump button
         float totalJumpForce = jumpingPower + jumpForceMultiplier * (jumpTimer / maxJumpTime);
-        rb.AddForce(Vector3.up * totalJumpForce, ForceMode2D.Impulse);
+        
+        // Apply jump force directly to y-axis of velocity
+        rb.velocity = new Vector2(rb.velocity.x, totalJumpForce);
     }
-
-    // private void FixedUpdate()
-    // {
-    //     rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-    // }
 
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
-            transform.Rotate(0f, 180f, 0f);
+            transform.Rotate(0f, 180f, 0f); // Flip the player
         }
     }
 }
