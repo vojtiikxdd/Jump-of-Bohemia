@@ -23,9 +23,4 @@ public class PlayerSoundJump : MonoBehaviour
             audioSource.PlayOneShot(jumpSound); // Play the sound
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
