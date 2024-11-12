@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 14f;
     public float maxJumpTime = 0.5f;
     public float jumpForceMultiplier = 5f;
-    private bool isJumping = false;
+    private bool canJump = false;
     private float jumpTimer = 0f;
     private bool isFacingRight = true;
 
@@ -33,32 +33,32 @@ public class PlayerMovement : MonoBehaviour
         // Update grounded status
         bool isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // Reset isJumping only when the player is grounded
-        if (isGroundedFlag && !isJumping)
+        // Reset canJump only when the player is grounded
+        if (isGroundedFlag && !canJump)
         {
-            isJumping = false;
+            canJump = false;
         }
 
         // Start jump if grounded and space is pressed
         if (Input.GetKeyDown(KeyCode.Space) && isGroundedFlag)
         {
-            isJumping = true;
+            canJump = true;
             jumpTimer = 0f;
         }
 
         // Track jump hold time
-        if (Input.GetKey(KeyCode.Space) && isJumping)
+        if (Input.GetKey(KeyCode.Space) && canJump)
         {
             jumpTimer += Time.deltaTime;
             jumpTimer = Mathf.Clamp(jumpTimer, 0f, maxJumpTime);
         }
 
         // Release jump and play sound
-        if (Input.GetKeyUp(KeyCode.Space) && isJumping)
+        if (Input.GetKeyUp(KeyCode.Space) && canJump)
         {
             Jump();
             playerSoundJump.PlayJumpSound(); // Play the jump sound
-            isJumping = false;
+            canJump = false;
         }
 
         Flip(); 
