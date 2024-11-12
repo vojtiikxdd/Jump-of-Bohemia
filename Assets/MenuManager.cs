@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     public void playGame()
     {
         // Nahraď "GameScene" názvem scény, kterou chceš načíst
-        SceneManager.LoadScene("Forest 1 - fieldtrip");
+        SceneManager.LoadScene("MainScene");
     }
 
     // Funkce pro tlačítko Quit
