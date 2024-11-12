@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimer = 0f;
     private bool isFacingRight = true;
     public float bounceForce = 10f;
+    public bool isGroundedFlag;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -32,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
 
         // Update grounded status
-        bool isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        isGroundedFlag = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         if (jumpTimer == 0.0f && isGroundedFlag)
         {
