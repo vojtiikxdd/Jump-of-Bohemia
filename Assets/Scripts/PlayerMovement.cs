@@ -53,7 +53,13 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Update movement only in FixedUpdate for consistency with physics
-        MovePlayer();
+        
+        // if(!isgroundedFlag && rb.velocity.y < 0)
+        // {
+        //     rb.velocity = new Vector2(0,0);
+        // }
+        // else
+            MovePlayer();
     }
 
     private void HandleJumpInput()
@@ -78,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
             playerSoundJump?.PlayJumpSound(); // Play the jump sound if script is attached
             canJump = false;
         }
+
+        
     }
 
     private void MovePlayer()
