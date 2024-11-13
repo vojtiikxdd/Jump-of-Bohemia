@@ -18,11 +18,11 @@ public class BgMusicController : MonoBehaviour
     {
         float playerHeight = playerTransform.position.y;
 
-        if (playerHeight < 10) // Low altitude
+        if (playerHeight < 17.5) // Low altitude
         {
             PlayClip(lowAltitudeClip);
         }
-        else if (playerHeight < 20) // Mid altitude
+        else if (playerHeight < 37) // Mid altitude
         {
             PlayClip(midAltitudeClip);
         }

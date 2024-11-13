@@ -6,7 +6,6 @@ public class WalkingSoundController : MonoBehaviour
 {
     public AudioSource walkingAudioSource;
     public AudioClip lowHeightSound;
-    public AudioClip midHeightSound;
     public AudioClip highHeightSound;
 
     public LayerMask groundLayer; // Layer for the ground
@@ -24,13 +23,9 @@ public class WalkingSoundController : MonoBehaviour
         float playerHeight = transform.position.y;
 
         // Choose the sound based on the height
-        if (playerHeight < 10)
+        if (playerHeight < 37)
         {
             walkingAudioSource.clip = lowHeightSound;
-        }
-        else if (playerHeight < 20)
-        {
-            walkingAudioSource.clip = midHeightSound;
         }
         else
         {
