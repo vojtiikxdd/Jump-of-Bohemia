@@ -16,5 +16,8 @@
 - Vojta Razima - project manager, main developer
 - Tomáš Slatinsky - gfx engeneer
 - Mário Miklovič - sound engineer
+byloNás5ět
+## Instructions for Starting the Game
+- Open the Main Menu, then press the Play button to enter the game.
 
 ***byloNás5ět***
