@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 6.0f;
-    private float jumpingPower = 14f;
+    private float speed = 5.0f;
+    private float jumpingPower = 12f;
     public float maxJumpTime = 0.5f;
     public float jumpForceMultiplier = 5f;
     private bool canJump = false;
