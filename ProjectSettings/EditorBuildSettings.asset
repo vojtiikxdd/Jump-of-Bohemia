@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Sky1.unity
     guid: a9510fd562220b74a83448a02398fb95
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: d8eebaf52e457754b8dec3c0bd4afb3a
   m_configObjects: {}

@@ -22,7 +22,7 @@ public class BgMusicController : MonoBehaviour
         {
             PlayClip(lowAltitudeClip);
         }
-        else if (playerHeight < 37) // Mid altitude
+        else if (playerHeight < 35) // Mid altitude
         {
             PlayClip(midAltitudeClip);
         }
