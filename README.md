@@ -1,8 +1,8 @@
 # Jump of bohemia
-## About
+### About
 - A game with lore of Praotec Čech trying to reach top of a mountain named Říp enhanced by fantastic story elements
 
-## Game Engine and Artwork
+### Game Engine and Artwork
 - This game is made in Unity, using C# scripts
 - As art style, we chose pixelart, because it's easy to make and reffers to game nam ed Jump King. Art was done in app named Piskel 
 
@@ -12,7 +12,7 @@
 ## Movement
 - It's simple, *A* & *D* buttons, moves player to sides and *space* makes player jump, *ESC* opens in-game menu
 
-## Instructions for Starting the Game
+## What to do after launching the game
 - After satrting *.exe* file, Menu appears. You have now three options. When clicking *Play* button, game is started. Be aware, there is no progress save! By clicking *Options* button, you can adjust game volume. Button *Quit* turns game off
 
 ## Team members
