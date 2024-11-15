@@ -7,7 +7,7 @@
 - As art style, we chose pixelart, because it's easy to make and reffers to game nam ed Jump King. Art was done in app named Piskel 
 
 ## Running the game
-- You can run the game by downloading JumpOfBohemia.exe file and running it. Game is not completed and not fully working, but you can move, jump and enter another scenes. Accessing menu by clicking ESC is not available
+- You can run the game by downloading JumpOfBohemia.exe file, located in folder ***final***, and running the *.exe* file. Game is not completed, you can move, jump and enter another scenes. You can access ingame menu by clicking ESC
 
 ## Instructions for Starting the Game
 - Open the Main Menu, then press the Play button to enter the game.
