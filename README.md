@@ -9,6 +9,9 @@
 ## Running the game
 - You can run the game by downloading JumpOfBohemia.exe file, located in folder ***final***, and running the *.exe* file. Game is not completed, you can move, jump and enter another scenes. You can access ingame menu by clicking ESC
 
+## Movement
+- It's simple, *A* & *D* buttons, moves player to sides and *space* makes player jump, *ESC* opens in-game menu
+
 ## Instructions for Starting the Game
 - After satrting *.exe* file, Menu appears. You have now three options. When clicking *Play* button, game is started. Be aware, there is no progress save! By clicking *Options* button, you can adjust game volume. Button *Quit* turns game off
 
