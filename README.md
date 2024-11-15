@@ -10,14 +10,11 @@
 - You can run the game by downloading JumpOfBohemia.exe file, located in folder ***final***, and running the *.exe* file. Game is not completed, you can move, jump and enter another scenes. You can access ingame menu by clicking ESC
 
 ## Instructions for Starting the Game
-- Open the Main Menu, then press the Play button to enter the game.
+- After satrting *.exe* file, Menu appears. You have now three options. When clicking *Play* button, game is started. Be aware, there is no progress save! By clicking *Options* button, you can adjust game volume. Button *Quit* turns game off
 
 ## Team members
 - Vojta Razima - project manager, main developer
 - Tomáš Slatinsky - gfx engeneer
 - Mário Miklovič - sound engineer
-byloNás5ět
-## Instructions for Starting the Game
-- Open the Main Menu, then press the Play button to enter the game.
 
 ***byloNás5ět***
