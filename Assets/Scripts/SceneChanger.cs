@@ -7,14 +7,9 @@ public class PlayerSceneTransition : MonoBehaviour
     public float fallThreshold = -5.0f;       // Y-position at which camera moves down
     public Rigidbody2D rb;
 
-    private float nextTopThreshold;
-    private float nextBottomThreshold;
 
     void Start()
     {
-        // Calculate the initial scene height and set thresholds
-        float sceneHeight = Camera.main.orthographicSize * 2;
-
         Camera.main.transform.position = new Vector3(0, 0, -10);
     }
 
